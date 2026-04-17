@@ -6,6 +6,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import ProjectsCarousel from "@/components/projects-carousel";
 import ExperienceSlider from "@/components/experience-slider";
 import Counter from "@/components/counter";
+import ScrollReveal from "@/components/scroll-reveal";
 import { stack, status } from "@/lib/data";
 
 export default function Home() {
@@ -37,7 +38,7 @@ export default function Home() {
 
             {/* Left — intro */}
             <div>
-              <div className="flex items-center gap-2 font-mono text-xs text-ink-3 mb-6">
+              <div className="flex items-center gap-2 font-mono text-xs text-ink-3 mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
                 <span
                   className="w-2 h-2 rounded-full bg-green"
                   style={{ boxShadow: "0 0 8px #39ff14", animation: "pulse 2s ease infinite" }}
@@ -46,12 +47,12 @@ export default function Home() {
               </div>
 
               <h1
-                className="font-mono font-bold leading-[1.08] tracking-tight text-ink"
-                style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
+                className="font-mono font-bold leading-[1.08] tracking-tight text-ink animate-fade-in-up"
+                style={{ fontSize: "clamp(36px, 5vw, 64px)", animationDelay: "0.2s" }}
               >
                 Hi, I&apos;m{" "}
                 <span
-                  className="text-accent"
+                  className="text-accent animate-glow-text-pulse"
                   style={{ textShadow: "0 0 24px rgba(0,229,255,0.5)" }}
                 >
                   Raj.
@@ -64,14 +65,14 @@ export default function Home() {
                 web software.
               </h1>
 
-              <p className="text-ink-2 mt-6 text-[15px] leading-relaxed max-w-md">
+              <p className="text-ink-2 mt-6 text-[15px] leading-relaxed max-w-md animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
                 Software Engineering graduate based in Dublin. Built production
                 full-stack platforms at Speeir — RAG pipelines, Stripe
                 integrations, AWS Amplify. Onboarded 1,200+ users at Anvaya.
                 TypeScript, React, Java, Python.
               </p>
 
-              <div className="flex gap-3 mt-8">
+              <div className="flex gap-3 mt-8 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
                 <a
                   href="#contact"
                   onClick={(e) => {
@@ -84,7 +85,7 @@ export default function Home() {
                         behavior: "smooth",
                       });
                   }}
-                  className="font-mono text-sm px-6 py-3 rounded-xl text-black font-semibold transition-all duration-300"
+                  className="font-mono text-sm px-6 py-3 rounded-xl text-black font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
                   style={{
                     background: "#00e5ff",
                     boxShadow: "0 0 20px rgba(0,229,255,0.3)",
@@ -104,7 +105,7 @@ export default function Home() {
                         behavior: "smooth",
                       });
                   }}
-                  className="font-mono text-sm px-6 py-3 rounded-xl text-ink-2 transition-all duration-300"
+                  className="font-mono text-sm px-6 py-3 rounded-xl text-ink-2 transition-all duration-300 hover:scale-105 active:scale-95"
                   style={{
                     background: "rgba(255,255,255,0.04)",
                     border: "1px solid rgba(255,255,255,0.1)",
@@ -116,15 +117,16 @@ export default function Home() {
             </div>
 
             {/* Right — status card */}
-            <div className="glass rounded-2xl p-6 hidden lg:block">
+            <div className="glass rounded-2xl p-6 hidden lg:block animate-slide-in-right" style={{ animationDelay: "0.3s" }}>
               <p className="font-mono text-[11px] text-accent/70 uppercase tracking-widest mb-4">
                 / currently
               </p>
               <ul className="space-y-0 mb-6">
-                {status.map((s) => (
+                {status.map((s, idx) => (
                   <li
                     key={s.key}
-                    className="flex justify-between py-3 border-b border-white/5 last:border-0 text-sm"
+                    className="flex justify-between py-3 border-b border-white/5 last:border-0 text-sm animate-fade-in-up"
+                    style={{ animationDelay: `${0.35 + idx * 0.05}s` }}
                   >
                     <span className="font-mono text-xs text-ink-3">{s.key}</span>
                     <span className="font-mono text-xs text-ink font-medium">{s.value}</span>
@@ -133,8 +135,8 @@ export default function Home() {
               </ul>
               <div className="grid grid-cols-2 gap-3 mt-2">
                 <div
-                  className="rounded-xl p-4 text-center"
-                  style={{ background: "rgba(57,255,20,0.07)", border: "1px solid rgba(57,255,20,0.15)" }}
+                  className="rounded-xl p-4 text-center animate-fade-in-scale"
+                  style={{ background: "rgba(57,255,20,0.07)", border: "1px solid rgba(57,255,20,0.15)", animationDelay: "0.4s" }}
                 >
                   <Counter
                     target={847}
@@ -146,8 +148,8 @@ export default function Home() {
                   </span>
                 </div>
                 <div
-                  className="rounded-xl p-4 text-center"
-                  style={{ background: "rgba(191,95,255,0.07)", border: "1px solid rgba(191,95,255,0.15)" }}
+                  className="rounded-xl p-4 text-center animate-fade-in-scale"
+                  style={{ background: "rgba(191,95,255,0.07)", border: "1px solid rgba(191,95,255,0.15)", animationDelay: "0.45s" }}
                 >
                   <span
                     className="font-mono text-2xl font-bold text-purple block"
@@ -164,9 +166,9 @@ export default function Home() {
           </div>
 
           {/* Scroll hint */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40 hover:opacity-100 transition-opacity duration-300 animate-float">
             <span className="font-mono text-[10px] uppercase tracking-widest text-ink-3">scroll</span>
-            <div className="w-px h-8 bg-white/20" />
+            <div className="w-px h-8 bg-white/20 animate-pulse" />
           </div>
         </section>
 
@@ -182,21 +184,26 @@ export default function Home() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-8 items-start">
               {/* Tech tags */}
-              <div>
-                <p className="font-mono text-[11px] text-ink-3 uppercase tracking-widest mb-4">
+              <ScrollReveal>
+                <p className="font-mono text-[11px] text-ink-3 uppercase tracking-widest mb-4 animate-fade-in-up">
                   technologies
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {stack.map((s) => (
-                    <span key={s} className="tag cursor-default">
+                  {stack.map((s, idx) => (
+                    <span 
+                      key={s} 
+                      className="tag cursor-default hover:scale-110 hover:animate-glow-pulse transition-all duration-300 stagger-item"
+                      style={{ animationDelay: `${idx * 0.05}s` }}
+                    >
                       {s}
                     </span>
                   ))}
                 </div>
-              </div>
+              </ScrollReveal>
 
               {/* Code block */}
-              <div className="glass rounded-2xl p-5">
+              <ScrollReveal>
+                <div className="glass rounded-2xl p-5 hover:border-accent/50 transition-all duration-500">
                 <pre className="font-mono text-[12px] text-code-ink leading-[1.8] whitespace-pre-wrap">
                   <span className="text-code-kw">const</span>{" "}
                   <span className="text-accent">raj</span>
@@ -235,21 +242,24 @@ export default function Home() {
                     style={{ boxShadow: "0 0 8px #00e5ff" }}
                   />
                 </pre>
-              </div>
+                </div>
+              </ScrollReveal>
             </div>
 
             {/* Spotify */}
-            <div className="mt-10 glass rounded-2xl overflow-hidden max-w-md">
-              <p className="font-mono text-[10px] text-ink-3 uppercase tracking-widest px-4 pt-4 pb-2">
-                / what i&apos;m listening to
-              </p>
-              <iframe
-                src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-                className="w-full min-h-[80px] border-0"
-              />
-            </div>
+            <ScrollReveal>
+              <div className="mt-10 glass rounded-2xl overflow-hidden max-w-md hover:border-accent/50 transition-all duration-500 hover:shadow-lg">
+                <p className="font-mono text-[10px] text-ink-3 uppercase tracking-widest px-4 pt-4 pb-2">
+                  / what i&apos;m listening to
+                </p>
+                <iframe
+                  src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                  className="w-full min-h-[80px] border-0"
+                />
+              </div>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -264,14 +274,16 @@ export default function Home() {
             <SectionLabel>/ experience</SectionLabel>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8 items-start">
-              <ExperienceSlider />
+              <ScrollReveal>
+                <ExperienceSlider />
+              </ScrollReveal>
 
               {/* Education */}
-              <div>
-                <p className="font-mono text-[11px] text-ink-3 uppercase tracking-widest mb-4">
+              <ScrollReveal>
+                <p className="font-mono text-[11px] text-ink-3 uppercase tracking-widest mb-4 animate-fade-in-up">
                   education
                 </p>
-                <div className="glass rounded-2xl p-6 flex items-center gap-4">
+                <div className="glass rounded-2xl p-6 flex items-center gap-4 hover:border-accent/50 transition-all duration-500 animate-fade-in-scale">
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center font-mono text-xl font-bold text-accent shrink-0"
                     style={{
@@ -296,8 +308,8 @@ export default function Home() {
                 </div>
 
                 <div
-                  className="glass rounded-2xl p-5 mt-4"
-                  style={{ boxShadow: "0 0 20px rgba(0,229,255,0.03)" }}
+                  className="glass rounded-2xl p-5 mt-4 hover:border-accent/50 transition-all duration-500 animate-fade-in-scale"
+                  style={{ boxShadow: "0 0 20px rgba(0,229,255,0.03)", animationDelay: "0.1s" }}
                 >
                   <p className="font-mono text-[11px] text-accent/70 uppercase tracking-widest mb-3">
                     / about me
@@ -313,7 +325,7 @@ export default function Home() {
                     that don&apos;t break in front of people.
                   </p>
                 </div>
-              </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
@@ -327,9 +339,11 @@ export default function Home() {
         >
           <div className="w-full max-w-5xl mx-auto">
             <SectionLabel>/ projects</SectionLabel>
-            <div className="mt-8">
-              <ProjectsCarousel />
-            </div>
+            <ScrollReveal>
+              <div className="mt-8">
+                <ProjectsCarousel />
+              </div>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -340,50 +354,52 @@ export default function Home() {
           id="contact"
           className="snap-section pl-20 pr-8 sm:pl-24 sm:pr-16 flex items-center"
         >
-          <div className="w-full max-w-5xl mx-auto">
+          <ScrollReveal>
+            <div className="w-full max-w-5xl mx-auto">
             <SectionLabel>/ contact</SectionLabel>
 
             <h2
-              className="font-mono font-bold text-ink mt-6"
+              className="font-mono font-bold text-ink mt-6 animate-fade-in-up"
               style={{ fontSize: "clamp(28px,4vw,52px)", lineHeight: 1.1 }}
             >
               Let&apos;s build something
               <br />
               <span
-                className="text-accent"
+                className="text-accent animate-glow-text-pulse"
                 style={{ textShadow: "0 0 24px rgba(0,229,255,0.4)" }}
               >
                 together.
               </span>
             </h2>
 
-            <p className="text-ink-2 mt-4 max-w-md text-[15px] leading-relaxed">
-              Actively looking for junior frontend or full-stack roles in Dublin.
-              Email is fastest — I usually reply within a day.
+            <p className="text-ink-2 mt-4 max-w-md text-[15px] leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+              Actively looking for junior frontend, full-stack, or general tech roles. Email is the fastest way to reach me—I usually reply within a day.
             </p>
 
-            <div className="flex flex-wrap gap-3 mt-8">
+            <div className="flex flex-wrap gap-3 mt-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
               {[
                 { label: "rajsahuire@outlook.com", href: "mailto:rajsahuire@outlook.com" },
                 { label: "LinkedIn", href: "https://linkedin.com/in/rajsahu-ie" },
                 { label: "GitHub", href: "https://github.com/Raa32" },
-              ].map((link) => (
+              ].map((link, idx) => (
                 <a
                   key={link.label}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="contact-link font-mono text-[13px] px-5 py-3 rounded-xl text-ink-2 inline-flex items-center gap-2"
+                  className="contact-link font-mono text-[13px] px-5 py-3 rounded-xl text-ink-2 inline-flex items-center gap-2 hover:scale-105 transition-all duration-300 active:scale-95"
+                  style={{ animationDelay: `${0.2 + idx * 0.05}s` }}
                 >
                   {link.label} <span className="opacity-50">↗</span>
                 </a>
               ))}
             </div>
 
-            <p className="font-mono text-[11px] text-ink-3 mt-16 tracking-widest uppercase">
+            <p className="font-mono text-[11px] text-ink-3 mt-16 tracking-widest uppercase animate-fade-in-up" style={{ animationDelay: "0.35s" }}>
               &copy; 2026 raj sahu &nbsp;·&nbsp; next.js · typescript · tailwind
             </p>
-          </div>
+            </div>
+          </ScrollReveal>
         </section>
 
       </div>
@@ -394,9 +410,9 @@ export default function Home() {
 /* Small helper — keeps section labels DRY */
 function SectionLabel({ children }: { children: string }) {
   return (
-    <p className="font-mono text-xs text-ink-3 flex items-center gap-2">
+    <p className="font-mono text-xs text-ink-3 flex items-center gap-2 animate-fade-in-up">
       <span
-        className="text-accent text-base"
+        className="text-accent text-base animate-glow-text-pulse"
         style={{ textShadow: "0 0 8px rgba(0,229,255,0.5)" }}
       >
         {children.split(" ")[0]}

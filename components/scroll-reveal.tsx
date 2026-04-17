@@ -30,6 +30,14 @@ export default function ScrollReveal({
     );
 
     observer.observe(el);
+
+    // Manually check if already in view on mount
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add("vis");
+      observer.unobserve(el);
+    }
+
     return () => observer.disconnect();
   }, []);
 

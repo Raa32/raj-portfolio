@@ -66,12 +66,12 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
-    title: "AI Research Platform",
+    title: "BookIt Appointment SMS",
     description:
-      "Full-stack RAG platform built at Speeir. Retrieves 10 web sources per query, chunks into 800-char segments with overlap, streams AI responses. Stripe subscriptions, freemium throttling, authenticated history APIs.",
-    href: "https://github.com/Raa32",
-    stack: ["Next.js", "TypeScript", "OpenAI APIs", "Firebase", "Stripe"],
-    meta: "speeir · 2025–2026",
+      "Full-stack appointment booking system with real-time SMS notifications via Twilio. Book confirmations, 24-hour reminders, cancellations, and status updates. Background scheduler checks for reminders hourly. Users can reply CANCEL via SMS to cancel appointments.",
+    href: "https://github.com/Raa32/bookit-appointment-sms",
+    stack: ["Flask", "Python", "Twilio", "SQLite", "APScheduler", "HTML/CSS"],
+    meta: "2025",
   },
   {
     title: "TaskFlow API",

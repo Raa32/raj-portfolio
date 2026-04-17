@@ -32,7 +32,7 @@ export default function ProjectsCarousel() {
               key={i}
               onClick={() => setIdx(i)}
               className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                i === idx ? "bg-accent scale-150" : "bg-white/20"
+                i === idx ? "bg-accent scale-150" : "nav-dot"
               }`}
               style={i === idx ? { boxShadow: "0 0 8px rgba(0,229,255,0.8)" } : {}}
             />
@@ -41,7 +41,7 @@ export default function ProjectsCarousel() {
       </div>
 
       {/* Card */}
-      <div className="glass rounded-2xl p-8 relative overflow-hidden">
+      <div className="glass rounded-2xl p-8 relative overflow-hidden hover:border-accent/50 transition-all duration-500 hover:shadow-lg">
         {/* Decorative corner accent */}
         <div
           className="absolute top-0 right-0 w-24 h-24 pointer-events-none"
@@ -60,7 +60,7 @@ export default function ProjectsCarousel() {
             href={proj.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block ml-3 text-accent text-xl align-middle opacity-60 hover:opacity-100 transition-opacity"
+            className="inline-block ml-3 text-accent text-xl align-middle opacity-60 hover:opacity-100 transition-opacity hover:animate-bounce"
           >
             ↗
           </a>
@@ -72,7 +72,7 @@ export default function ProjectsCarousel() {
 
         <div className="flex flex-wrap gap-2 mt-6">
           {proj.stack.map((s) => (
-            <span key={s} className="tag">
+            <span key={s} className="tag hover:scale-110 transition-transform duration-300">
               {s}
             </span>
           ))}
@@ -86,7 +86,7 @@ export default function ProjectsCarousel() {
             href={proj.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-xs text-accent hover:underline underline-offset-4 transition-all"
+            className="font-mono text-xs text-accent hover:underline underline-offset-4 transition-all hover:glow-pulse"
             style={{ textShadow: "0 0 8px rgba(0,229,255,0.3)" }}
           >
             view on github →
@@ -101,8 +101,8 @@ export default function ProjectsCarousel() {
           disabled={idx === 0}
           className="w-12 h-12 rounded-xl font-mono text-lg flex items-center justify-center transition-all duration-200 disabled:opacity-20"
           style={{
-            background: "rgba(255,255,255,0.04)",
-            border: "1px solid rgba(255,255,255,0.08)",
+            background: "var(--btn-bg)",
+            border: "1px solid var(--btn-border)",
           }}
           onMouseEnter={(e) => {
             if (idx > 0)
@@ -111,7 +111,7 @@ export default function ProjectsCarousel() {
           }}
           onMouseLeave={(e) => {
             (e.currentTarget as HTMLButtonElement).style.borderColor =
-              "rgba(255,255,255,0.08)";
+              "var(--btn-border)";
           }}
         >
           ←
@@ -121,8 +121,8 @@ export default function ProjectsCarousel() {
           disabled={idx === projects.length - 1}
           className="w-12 h-12 rounded-xl font-mono text-lg flex items-center justify-center transition-all duration-200 disabled:opacity-20"
           style={{
-            background: "rgba(255,255,255,0.04)",
-            border: "1px solid rgba(255,255,255,0.08)",
+            background: "var(--btn-bg)",
+            border: "1px solid var(--btn-border)",
           }}
           onMouseEnter={(e) => {
             if (idx < projects.length - 1)
@@ -131,7 +131,7 @@ export default function ProjectsCarousel() {
           }}
           onMouseLeave={(e) => {
             (e.currentTarget as HTMLButtonElement).style.borderColor =
-              "rgba(255,255,255,0.08)";
+              "var(--btn-border)";
           }}
         >
           →

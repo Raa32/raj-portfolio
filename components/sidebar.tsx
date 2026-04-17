@@ -68,7 +68,7 @@ export default function Sidebar() {
         </button>
 
         {/* Top line */}
-        <div className="w-px bg-white/10 flex-1" />
+        <div className="w-px divider-line flex-1" />
 
         {/* Social links */}
         <div className="flex flex-col gap-5">
@@ -100,7 +100,7 @@ export default function Sidebar() {
         </div>
 
         {/* Bottom line */}
-        <div className="w-px bg-white/10 flex-1" />
+        <div className="w-px divider-line flex-1" />
 
         {/* Vertical label */}
         <span
@@ -124,8 +124,8 @@ export default function Sidebar() {
         }}
       >
         <div
-          className="glass rounded-full px-2 py-2 flex items-center gap-1 pointer-events-auto"
-          style={{ border: "1px solid rgba(255,255,255,0.08)" }}
+          className="glass rounded-full px-2 py-2 flex items-center gap-1 pointer-events-auto border-line"
+          style={{ borderWidth: "1px" }}
         >
           {SECTIONS.map((s) => {
             const isActive = active === s;
@@ -170,7 +170,7 @@ export default function Sidebar() {
               className={`block rounded-full transition-all duration-300 ${
                 active === s
                   ? "w-3 h-3 bg-accent"
-                  : "w-1.5 h-1.5 bg-white/20 hover:bg-white/50"
+                  : "w-1.5 h-1.5 nav-dot"
               }`}
               style={
                 active === s
