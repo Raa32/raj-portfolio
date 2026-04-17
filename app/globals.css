@@ -55,6 +55,15 @@
   }
 }
 
+/* ─── Full-screen section ────────────────────────────────── */
+.snap-section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 /* ─── Glassmorphism card ─────────────────────────────────── */
 .glass {
   background: rgba(8, 8, 16, 0.55);

@@ -12,12 +12,19 @@ export default function VideoBg() {
     let rafId: number;
     let target = 0;
 
-    const onScroll = () => {
-      const maxScroll =
-        document.documentElement.scrollHeight - window.innerHeight;
-      if (maxScroll > 0) {
-        target = (window.scrollY / maxScroll) * (video.duration || 0);
-      }
+    const bindScroll = () => {
+      const container = document.getElementById("scroll-root");
+      if (!container) return;
+
+      const onScroll = () => {
+        const maxScroll = container.scrollHeight - container.clientHeight;
+        if (maxScroll > 0) {
+          target = (container.scrollTop / maxScroll) * (video.duration || 0);
+        }
+      };
+
+      container.addEventListener("scroll", onScroll, { passive: true });
+      return () => container.removeEventListener("scroll", onScroll);
     };
 
     const tick = () => {
@@ -30,18 +37,17 @@ export default function VideoBg() {
       rafId = requestAnimationFrame(tick);
     };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
+    const cleanup = bindScroll();
     rafId = requestAnimationFrame(tick);
 
     return () => {
-      window.removeEventListener("scroll", onScroll);
+      cleanup?.();
       cancelAnimationFrame(rafId);
     };
   }, []);
 
   return (
     <>
-      {/* Fixed video layer */}
       <video
         ref={videoRef}
         src="/bg.mp4"
@@ -50,9 +56,7 @@ export default function VideoBg() {
         preload="auto"
         className="fixed inset-0 w-full h-full object-cover -z-20 pointer-events-none"
       />
-      {/* Dark gradient overlay */}
       <div className="video-overlay fixed inset-0 -z-10 pointer-events-none" />
-      {/* Subtle grid texture */}
       <div className="grid-bg fixed inset-0 -z-10 pointer-events-none opacity-60" />
     </>
   );
