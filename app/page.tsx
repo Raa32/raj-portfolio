@@ -32,7 +32,7 @@ export default function Home() {
         ════════════════════════════════════════════ */}
         <section
           id="hero"
-          className="snap-section pl-20 pr-8 sm:pl-24 sm:pr-16 flex items-center"
+          className="snap-section pl-6 pr-4 sm:pl-8 md:pl-20 md:pr-8 lg:pl-24 lg:pr-16 flex items-center"
         >
           <div className="w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
@@ -177,7 +177,7 @@ export default function Home() {
         ════════════════════════════════════════════ */}
         <section
           id="stack"
-          className="snap-section pl-20 pr-8 sm:pl-24 sm:pr-16 flex items-center"
+          className="snap-section pl-6 pr-4 sm:pl-8 md:pl-20 md:pr-8 lg:pl-24 lg:pr-16 flex items-center"
         >
           <div className="w-full max-w-5xl mx-auto">
             <SectionLabel>/ stack</SectionLabel>
@@ -268,7 +268,7 @@ export default function Home() {
         ════════════════════════════════════════════ */}
         <section
           id="experience"
-          className="snap-section pl-20 pr-8 sm:pl-24 sm:pr-16 flex items-center"
+          className="snap-section pl-6 pr-4 sm:pl-8 md:pl-20 md:pr-8 lg:pl-24 lg:pr-16 flex items-center"
         >
           <div className="w-full max-w-5xl mx-auto">
             <SectionLabel>/ experience</SectionLabel>
@@ -335,7 +335,7 @@ export default function Home() {
         ════════════════════════════════════════════ */}
         <section
           id="projects"
-          className="snap-section pl-20 pr-8 sm:pl-24 sm:pr-16 flex items-center"
+          className="snap-section pl-6 pr-4 sm:pl-8 md:pl-20 md:pr-8 lg:pl-24 lg:pr-16 flex items-center"
         >
           <div className="w-full max-w-5xl mx-auto">
             <SectionLabel>/ projects</SectionLabel>
@@ -352,7 +352,7 @@ export default function Home() {
         ════════════════════════════════════════════ */}
         <section
           id="contact"
-          className="snap-section pl-20 pr-8 sm:pl-24 sm:pr-16 flex items-center"
+          className="snap-section pl-6 pr-4 sm:pl-8 md:pl-20 md:pr-8 lg:pl-24 lg:pr-16 flex items-center"
         >
           <ScrollReveal>
             <div className="w-full max-w-5xl mx-auto">
