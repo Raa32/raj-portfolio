@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --font-display: var(--font-display), ui-serif, serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+
+  /* Warm palette */
+  --color-bg: #f5f0e8;
+  --color-card: #ffffff;
+  --color-ink: #1a1814;
+  --color-ink-2: #4a463f;
+  --color-ink-3: #8a857c;
+  --color-line: #e0d9ca;
+  --color-line-2: #d0c8b5;
+  --color-accent: #b8543d;
+  --color-accent-soft: #f3e6dc;
+  --color-green: #5a8c4a;
+  --color-green-soft: #eaf3e2;
+  --color-code-bg: #1c1916;
+  --color-code-ink: #d8d0c0;
+  --color-code-kw: #d4737a;
+  --color-code-v: #e0a44a;
+  --color-code-s: #7fa86a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    color-scheme: light dark;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg: #12100c;
+      --color-card: #1c1916;
+      --color-ink: #f0ebe0;
+      --color-ink-2: #b0a898;
+      --color-ink-3: #6a6358;
+      --color-line: #2a251e;
+      --color-line-2: #3a342a;
+      --color-accent: #e07a5f;
+      --color-accent-soft: #2a1f1a;
+      --color-green: #7fa86a;
+      --color-green-soft: #1a2414;
+      --color-code-bg: #0e0c0a;
+      --color-code-ink: #b0a898;
+    }
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: #fff;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Scroll reveal base */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(32px) scale(0.97);
+  transition:
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.vis {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Blinking cursor */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Pulse for availability dot */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }
