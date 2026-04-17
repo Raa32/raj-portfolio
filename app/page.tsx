@@ -32,7 +32,7 @@ export default function Home() {
         ════════════════════════════════════════════ */}
         <section
           id="hero"
-          className="snap-section pl-6 pr-4 sm:pl-8 md:pl-20 md:pr-8 lg:pl-24 lg:pr-16 flex items-center"
+          className="snap-section pl-6 pr-4 sm:pl-8 md:pl-20 md:pr-8 lg:pl-24 lg:pr-16 flex items-start md:items-center justify-center"
         >
           <div className="w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 

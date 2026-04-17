@@ -105,8 +105,14 @@
   scroll-snap-align: start;
   scroll-snap-stop: normal;
   position: relative;
-  padding-top: 2rem;
+  padding-top: 0;
   padding-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .snap-section {
+    padding-top: 2rem;
+  }
 }
 
 #scroll-root {
