@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(///wsl.localhost/Ubuntu/home/rajsa/projects/**)",
+      "Read(//c/Users/RajSa/projects/**)",
+      "Bash(npm run *)",
+      "Bash(wsl -e bash -c \"cd /home/rajsa/projects/raj-portfolio && npm run dev\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(powershell.exe -Command \"Copy-Item 'C:\\\\Users\\\\RajSa\\\\Downloads\\\\Video_Generation_with_Scrolling_Animation.mp4' '\\\\\\\\wsl.localhost\\\\Ubuntu\\\\home\\\\rajsa\\\\projects\\\\raj-portfolio\\\\public\\\\bg.mp4'\")",
+      "Bash(powershell.exe -Command \"Copy-Item 'C:\\\\Users\\\\RajSa\\\\Downloads\\\\Video_Generation_with_Scrolling_Animation.mp4' 'C:\\\\Users\\\\RajSa\\\\AppData\\\\Local\\\\Temp\\\\bg.mp4'\")",
+      "Bash(wsl -e cp /mnt/c/Users/RajSa/AppData/Local/Temp/bg.mp4 /home/rajsa/projects/raj-portfolio/public/bg.mp4)",
+      "Bash(git config *)",
+      "Bash(git add *)"
+    ]
+  }
+}

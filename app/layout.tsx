@@ -1,25 +1,23 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Geist, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-// Display font — used for hero + section titles
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-});
-
-// Body font — used for paragraphs + UI
-const geist = Geist({
+const spaceGrotesk = Space_Grotesk({
   variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-// Mono font — used for code blocks + metadata
+const spaceGroteskDisplay = Space_Grotesk({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["700"],
+});
+
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -36,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${instrumentSerif.variable} ${geist.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+        className={`${spaceGrotesk.variable} ${spaceGroteskDisplay.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
         {children}
       </body>

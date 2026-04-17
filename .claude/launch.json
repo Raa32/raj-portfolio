@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "raj-portfolio",
+      "runtimeExecutable": "wsl",
+      "runtimeArgs": ["-e", "bash", "-ic", "cd /home/rajsa/projects/raj-portfolio && PORT=3002 ./node_modules/.bin/next dev"],
+      "port": 3002,
+      "autoPort": false
+    }
+  ]
+}

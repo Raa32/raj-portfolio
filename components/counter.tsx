@@ -1,13 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, CSSProperties } from "react";
 
 interface Props {
   target: number;
   className?: string;
+  style?: CSSProperties;
 }
 
-export default function Counter({ target, className = "" }: Props) {
+export default function Counter({ target, className = "", style }: Props) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
@@ -44,7 +45,7 @@ export default function Counter({ target, className = "" }: Props) {
   }, [target]);
 
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={className} style={style}>
       {count}
     </span>
   );
