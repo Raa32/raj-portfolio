@@ -36,6 +36,28 @@
 
 @layer base {
   :root {
+    color-scheme: light dark;
+  }
+
+  /* Light mode variables */
+  @media (prefers-color-scheme: light) {
+    :root {
+      --color-bg:          #ffffff;
+      --color-card:        rgba(240, 240, 245, 0.8);
+      --color-ink:         #1a1a2e;
+      --color-ink-2:       #6b6b8a;
+      --color-ink-3:       #a0a0b5;
+      --color-line:        rgba(0, 0, 0, 0.08);
+      --color-line-2:      rgba(0, 0, 0, 0.12);
+      --color-accent:      #0891b2;
+      --color-accent-soft: rgba(8, 145, 178, 0.08);
+      --color-code-bg:     rgba(240, 240, 245, 0.8);
+      --color-code-ink:    #2d3748;
+    }
+  }
+
+  /* Dark mode (explicit) */
+  html.dark {
     color-scheme: dark;
   }
 

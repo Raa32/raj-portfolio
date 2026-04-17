@@ -6,6 +6,7 @@ export interface Experience {
   location: string;
   dates: string;
   tags: string[];
+  bullets: string[];
 }
 
 export interface Project {
@@ -26,80 +27,108 @@ export interface StatusItem {
 export const experiences: Experience[] = [
   {
     company: "Speeir Ltd",
-    role: "Client Implementation Support",
-    location: "athlone, ie",
+    role: "Junior Software Engineer",
+    location: "ireland · remote",
     dates: "jul 2025 — mar 2026",
-    tags: ["SaaS", "Client onboarding", "HubSpot", "JIRA"],
+    tags: ["Next.js", "TypeScript", "AWS Amplify", "Firebase", "Stripe", "OpenAI"],
+    bullets: [
+      "Built a full-stack AI research platform from scratch — RAG pipeline retrieving 10 web sources per query, chunked into 800-char segments, streamed responses with function calling",
+      "Integrated Stripe across 2 subscription tiers with webhook handling for 3 lifecycle events; freemium cap of 3 searches/day with server-side throttling at 10 req/min",
+      "Set up auth and backend resources as code with AWS Amplify Gen2 + Cognito; branch-based CI/CD pipeline ready before the first feature shipped",
+      "Triaged production issues end to end — reproduced in test env, escalated with full context, ran post-deployment checks to confirm fixes held",
+    ],
   },
   {
-    company: "Anvaya",
-    role: "Customer Implementation Support",
-    location: "remote",
-    dates: "feb — jun 2025",
-    tags: ["SaaS", "User guides", "Product feedback"],
+    company: "Anvaya Ltd",
+    role: "Customer Onboarding Executive",
+    location: "ireland",
+    dates: "feb 2025 — jun 2025",
+    tags: ["SaaS", "HubSpot", "User onboarding", "Technical writing"],
+    bullets: [
+      "Onboarded 1,200+ users end to end on a peer-to-peer booking platform, contributing to €144,000 in platform revenue",
+      "Authored user guide and FAQ documentation; reduced onboarding friction and incoming support queries",
+      "Identified stalled registrations before they escalated, resolved directly, and wrote escalation reports for engineering covering user impact and reproduction steps",
+    ],
   },
   {
     company: "CeX",
     role: "Team Leader",
-    location: "athlone, ie",
-    dates: "2020 — 2024",
-    tags: ["Team mgmt", "Retail ops", "Customer-facing"],
+    location: "athlone, ireland",
+    dates: "aug 2024 — jan 2026",
+    tags: ["Team mgmt", "Hardware diagnostics", "macOS", "Windows"],
+    bullets: [
+      "Diagnosed and configured 30+ devices daily across macOS and Windows — fault identification, component testing, OS reinstallation, data recovery",
+      "Led a team of 5–10 staff; ran briefings and training sessions on hardware testing and customer-facing communication",
+      "Delivered up to €9,000 in individual weekly sales through consultative, face-to-face conversations",
+    ],
   },
 ];
 
 export const projects: Project[] = [
   {
-    title: "DocFlow",
+    title: "AI Research Platform",
     description:
-      "Document management system with configurable approval workflows and a full audit trail. Final year project.",
-    href: "https://github.com/Raa32/document-workflow-system",
-    stack: ["FastAPI", "Python", "SQLAlchemy", "Jinja2"],
-    meta: "final year project",
+      "Full-stack RAG platform built at Speeir. Retrieves 10 web sources per query, chunks into 800-char segments with overlap, streams AI responses. Stripe subscriptions, freemium throttling, authenticated history APIs.",
+    href: "https://github.com/Raa32",
+    stack: ["Next.js", "TypeScript", "OpenAI APIs", "Firebase", "Stripe"],
+    meta: "speeir · 2025–2026",
   },
   {
     title: "TaskFlow API",
     description:
-      "Production-grade task management REST API with JWT auth, deployed on AWS via Docker + Kubernetes. CI/CD with GitHub Actions.",
+      "Production-grade REST API for task management with full CRUD, layered architecture (controller/service/repository), Bean Validation, global exception handling, and status filtering via query params.",
     href: "https://github.com/Raa32",
-    stack: ["Spring Boot", "Docker", "K8s", "AWS"],
+    stack: ["Java", "Spring Boot 3", "Spring Data JPA", "H2", "Maven"],
     meta: "2026",
+  },
+  {
+    title: "DocFlow",
+    description:
+      "Document management system with multi-stage configurable approval workflows and a full audit trail. Delivered with system docs, end-user guide, and a ten-case test plan. Final year project.",
+    href: "https://github.com/Raa32/document-workflow-system",
+    stack: ["FastAPI", "Python", "SQLAlchemy", "SQLite"],
+    meta: "final year · 2025",
   },
   {
     title: "SWIFT MT103 Parser",
     description:
-      "CLI parser and validator for SWIFT MT103 international payment messages. Field-level validation against the standard.",
+      "CLI parser and validator for SWIFT MT103 international payment messages. Field-level validation against the standard spec; flags malformed fields and writes timestamped JSON logs on every run.",
     href: "https://github.com/Raa32/swift-parser",
     stack: ["Python", "CLI"],
     meta: "cli tool",
   },
   {
-    title: "This portfolio",
+    title: "Observability Stack",
     description:
-      "The site you're on. Scroll-reveal bento grid built from scratch. Source on GitHub.",
-    href: "https://github.com/Raa32/raj-portfolio",
-    stack: ["Next.js", "TypeScript", "Tailwind", "Vercel"],
-    meta: "2026",
+      "Docker Compose monitoring environment using Node.js, Prometheus, and Ansible. Demonstrates systems administration, infrastructure-as-code, and observable service design.",
+    href: "https://github.com/Raa32/nr-monitor-stack",
+    stack: ["Docker", "Node.js", "Prometheus", "Ansible"],
+    meta: "infra · 2025",
   },
 ];
 
 export const stack: string[] = [
-  "React",
   "TypeScript",
+  "React",
   "Next.js",
-  "Tailwind",
+  "Java",
   "Spring Boot",
   "Python",
+  "FastAPI",
+  "AWS Amplify",
+  "Firebase",
+  "OpenAI APIs",
   "Docker",
-  "AWS",
   "PostgreSQL",
   "Git",
+  "Stripe",
   "JIRA",
-  "HubSpot",
+  "Postman",
 ];
 
 export const status: StatusItem[] = [
-  { key: "Building", value: "This portfolio" },
-  { key: "Learning", value: "React patterns" },
+  { key: "Building", value: "rxj.life" },
+  { key: "Learning", value: "AI + RAG systems" },
   { key: "Reading", value: "DDIA" },
-  { key: "Stack", value: "Next.js + TS" },
+  { key: "Stack", value: "Next.js + TS + Java" },
 ];

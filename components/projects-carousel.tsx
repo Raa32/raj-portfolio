@@ -1,11 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { projects } from "@/lib/data";
 
 export default function ProjectsCarousel() {
   const [idx, setIdx] = useState(0);
   const proj = projects[idx];
+
+  // Auto-swipe every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIdx((i) => (i + 1) % projects.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="w-full max-w-2xl">

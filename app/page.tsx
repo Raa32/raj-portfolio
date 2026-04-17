@@ -2,6 +2,7 @@
 
 import VideoBg from "@/components/video-bg";
 import Sidebar from "@/components/sidebar";
+import { ThemeToggle } from "@/components/theme-toggle";
 import ProjectsCarousel from "@/components/projects-carousel";
 import ExperienceSlider from "@/components/experience-slider";
 import Counter from "@/components/counter";
@@ -12,6 +13,7 @@ export default function Home() {
     <>
       <VideoBg />
       <Sidebar />
+      <ThemeToggle />
 
       {/* ── Scroll container ─────────────────────────── */}
       <div
@@ -59,8 +61,10 @@ export default function Home() {
               </h1>
 
               <p className="text-ink-2 mt-6 text-[15px] leading-relaxed max-w-md">
-                Software engineer in Dublin. React, TypeScript, Spring Boot.
-                Clean code and tools people actually want to use.
+                Software Engineering graduate based in Dublin. Built production
+                full-stack platforms at Speeir — RAG pipelines, Stripe
+                integrations, AWS Amplify. Onboarded 1,200+ users at Anvaya.
+                TypeScript, React, Java, Python.
               </p>
 
               <div className="flex gap-3 mt-8">
@@ -196,7 +200,7 @@ export default function Home() {
                   {"  "}
                   <span className="text-code-v">role</span>
                   {":\u00A0\u00A0\u00A0 "}
-                  <span className="text-code-s">&quot;frontend engineer&quot;</span>
+                  <span className="text-code-s">&quot;software engineer&quot;</span>
                   {",\n"}
                   {"  "}
                   <span className="text-code-v">based</span>
@@ -206,12 +210,17 @@ export default function Home() {
                   {"  "}
                   <span className="text-code-v">stack</span>
                   {":\u00A0\u00A0 ["}
-                  <span className="text-code-s">&quot;react&quot;</span>
+                  <span className="text-code-s">&quot;next.js&quot;</span>
                   {", "}
                   <span className="text-code-s">&quot;typescript&quot;</span>
                   {", "}
-                  <span className="text-code-s">&quot;next.js&quot;</span>
+                  <span className="text-code-s">&quot;java&quot;</span>
                   {"],\n"}
+                  {"  "}
+                  <span className="text-code-v">ships</span>
+                  {":\u00A0\u00A0 "}
+                  <span className="text-code-s">&quot;production code&quot;</span>
+                  {",\n"}
                   {"  "}
                   <span className="text-code-v">open</span>
                   {":\u00A0\u00A0\u00A0 "}
@@ -290,11 +299,14 @@ export default function Home() {
                     / about me
                   </p>
                   <p className="text-ink-2 text-sm leading-relaxed">
-                    Recently graduated from TUS Athlone. My background in client
-                    implementation taught me to ship things that don&apos;t
-                    break in front of people. Now focused on{" "}
-                    <span className="text-accent">React, TypeScript,</span> and
-                    the JVM ecosystem.
+                    BEng Software Engineering graduate from TUS Athlone. At
+                    Speeir I built two production platforms — an{" "}
+                    <span className="text-accent">AI research tool</span> with
+                    RAG, streaming, and Stripe, and a{" "}
+                    <span className="text-accent">fitness coaching app</span>{" "}
+                    on AWS Amplify Gen2. At Anvaya I onboarded 1,200+ users,
+                    contributing to €144K in platform revenue. I ship things
+                    that don&apos;t break in front of people.
                   </p>
                 </div>
               </div>
