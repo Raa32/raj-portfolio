@@ -81,9 +81,15 @@
 .snap-section {
   min-height: 100vh;
   scroll-snap-align: start;
+  scroll-snap-stop: normal;
   position: relative;
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+#scroll-root {
+  scroll-padding-top: 0;
+  overscroll-behavior: contain;
 }
 
 /* ─── Glassmorphism card ─────────────────────────────────── */
@@ -121,12 +127,19 @@
 
 /* ─── Video background overlay ───────────────────────────── */
 .video-overlay {
-  background: linear-gradient(
-    to bottom,
-    rgba(6, 6, 10, 0.72) 0%,
-    rgba(6, 6, 10, 0.55) 40%,
-    rgba(6, 6, 10, 0.72) 100%
-  );
+  background:
+    linear-gradient(
+      to right,
+      rgba(6, 6, 10, 0.78) 0%,
+      rgba(6, 6, 10, 0.5) 45%,
+      rgba(6, 6, 10, 0.35) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(6, 6, 10, 0.35) 0%,
+      rgba(6, 6, 10, 0.2) 40%,
+      rgba(6, 6, 10, 0.35) 100%
+    );
 }
 
 /* ─── Scanline grid texture ──────────────────────────────── */

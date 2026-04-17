@@ -1,11 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { experiences } from "@/lib/data";
 
 export default function ExperienceSlider() {
   const [idx, setIdx] = useState(0);
   const exp = experiences[idx];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIdx((i) => (i + 1) % experiences.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="w-full max-w-2xl">

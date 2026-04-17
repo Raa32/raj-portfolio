@@ -25,6 +25,7 @@ const EmailIcon = () => (
 
 export default function Sidebar() {
   const [active, setActive] = useState("hero");
+  const [showTopNav, setShowTopNav] = useState(true);
 
   useEffect(() => {
     const container = document.getElementById("scroll-root");
@@ -38,6 +39,7 @@ export default function Sidebar() {
         SECTIONS.length - 1
       );
       setActive(SECTIONS[idx]);
+      setShowTopNav(scrollTop < 80);
     };
 
     container.addEventListener("scroll", onScroll, { passive: true });
@@ -108,6 +110,48 @@ export default function Sidebar() {
           rxj.life
         </span>
       </aside>
+
+      {/* ── Top section nav ──────────────────────────── */}
+      <nav
+        className="fixed top-5 left-1/2 z-50 hidden sm:flex pointer-events-none"
+        style={{
+          transform: showTopNav
+            ? "translate(-50%, 0)"
+            : "translate(calc(50vw + 100%), 0)",
+          opacity: showTopNav ? 1 : 0,
+          transition:
+            "transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease",
+        }}
+      >
+        <div
+          className="glass rounded-full px-2 py-2 flex items-center gap-1 pointer-events-auto"
+          style={{ border: "1px solid rgba(255,255,255,0.08)" }}
+        >
+          {SECTIONS.map((s) => {
+            const isActive = active === s;
+            return (
+              <button
+                key={s}
+                onClick={() => scrollTo(s)}
+                className={`relative font-mono text-[11px] uppercase tracking-widest px-4 py-1.5 rounded-full transition-all duration-300 ${
+                  isActive ? "text-accent" : "text-ink-3 hover:text-ink-2"
+                }`}
+                style={
+                  isActive
+                    ? {
+                        background: "rgba(0,229,255,0.1)",
+                        boxShadow: "0 0 12px rgba(0,229,255,0.25)",
+                        textShadow: "0 0 8px rgba(0,229,255,0.5)",
+                      }
+                    : {}
+                }
+              >
+                {s}
+              </button>
+            );
+          })}
+        </div>
+      </nav>
 
       {/* ── Right section dots ────────────────────────── */}
       <nav className="fixed right-5 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3 hidden sm:flex">

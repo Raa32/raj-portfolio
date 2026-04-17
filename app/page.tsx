@@ -19,7 +19,11 @@ export default function Home() {
       <div
         id="scroll-root"
         className="h-screen overflow-y-scroll"
-        style={{ scrollSnapType: "y mandatory" }}
+        style={{
+          scrollSnapType: "y proximity",
+          scrollBehavior: "smooth",
+          WebkitOverflowScrolling: "touch",
+        }}
       >
 
         {/* ════════════════════════════════════════════
