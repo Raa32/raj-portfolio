@@ -42,3 +42,6 @@ next-env.d.ts
 .claude/
 *.Identifier
 Zone.Identifier
+
+# personal files
+PORTFOLIO_INTERVIEW_GUIDE.md
