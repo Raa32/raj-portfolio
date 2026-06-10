@@ -6,20 +6,12 @@ export default function About() {
     <section
       id="about"
       aria-label="About"
-      className="flex min-h-screen flex-col justify-center px-6 py-24 md:px-16"
+      className="bg-paper px-6 py-28 text-bg md:py-36"
     >
-      <div className="grid max-w-[1000px] items-center gap-10 md:grid-cols-[1fr_320px]">
-        <div className="max-w-[720px]">
-          <WaypointLabel index={1} />
-          <h2 className="mt-6 font-display text-3xl uppercase tracking-tight text-sand md:text-5xl">
-            {content.sections.about}
-          </h2>
-          <div className="mt-8 space-y-5 text-white">
-            {content.about.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        </div>
+      <div className="mx-auto max-w-[860px] text-center">
+        <WaypointLabel index={2} onPaper />
+      </div>
+      <div className="mx-auto mt-12 grid max-w-[880px] items-center gap-12 md:grid-cols-[300px_1fr]">
         <img
           src="/img/portrait.webp"
           alt="Portrait of Raj Sahu"
@@ -27,8 +19,18 @@ export default function About() {
           height={1250}
           loading="lazy"
           decoding="async"
-          className="hidden aspect-[4/5] w-full border border-line object-cover md:block"
+          className="mx-auto aspect-[4/5] w-full max-w-[300px] rounded-lg border border-linelight object-cover shadow-lg"
         />
+        <div>
+          <h2 className="font-display text-2xl uppercase tracking-tight md:text-3xl">
+            {content.sections.about}
+          </h2>
+          <div className="mt-6 space-y-5 text-[1.05rem] leading-relaxed text-bg/85">
+            {content.about.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

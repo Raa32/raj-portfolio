@@ -32,6 +32,14 @@ export const content = {
     },
   },
 
+  statements: {
+    intro: "I help teams ship projects like:",
+    partner: "Teams work with me because of my",
+    partnerPunch: "range + calm under load",
+    workTease: "Curious?... Check out my",
+    workHint: "Or keep scrolling",
+  },
+
   about: {
     heading: "About",
     paragraphs: [

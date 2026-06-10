@@ -7,26 +7,42 @@ export default function Projects() {
     <section
       id="projects"
       aria-label="Projects"
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 py-24 md:px-16"
+      className="relative overflow-hidden bg-paper px-6 pb-32 pt-24 text-bg md:pt-32"
     >
+      <p className="relative z-10 mx-auto max-w-[760px] text-center font-display text-3xl uppercase leading-[1.05] tracking-tight md:text-5xl">
+        {content.statements.intro}
+      </p>
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute left-0 top-12 select-none font-display text-[26vw] uppercase leading-none tracking-tight text-sand/[0.04]"
+        className="pointer-events-none absolute left-1/2 top-8 -translate-x-1/2 select-none font-display text-[30vw] uppercase leading-none tracking-tight text-sand/25"
       >
         Work
       </span>
-      <div className="relative max-w-[1100px]">
-        <WaypointLabel index={2} />
-        <h2 className="mt-6 font-display text-3xl uppercase tracking-tight text-sand md:text-5xl">
-          {content.sections.projects}
-        </h2>
-        <ul className="mt-10 grid gap-6 md:grid-cols-2" role="list">
+      <div className="relative mx-auto max-w-[1100px]">
+        <div className="pt-[16vw] text-center">
+          <p className="font-mono text-xs uppercase tracking-[0.25em] text-bg/60">
+            {content.statements.workTease}
+          </p>
+          <h2 className="mt-4 font-display text-4xl uppercase tracking-tight md:text-6xl">
+            {content.sections.projects}
+          </h2>
+          <div className="mt-3 flex justify-center">
+            <WaypointLabel index={1} onPaper />
+          </div>
+        </div>
+        <ul className="mt-16 grid gap-8 md:grid-cols-2" role="list">
           {content.projects.map((project) => (
             <li key={project.name}>
               <ProjectCard project={project} />
             </li>
           ))}
         </ul>
+        <p
+          aria-hidden="true"
+          className="mt-16 text-center font-mono text-xs uppercase tracking-[0.25em] text-bg/50"
+        >
+          {content.statements.workHint}
+        </p>
       </div>
     </section>
   );

@@ -2,8 +2,8 @@ import type { Project } from "@/lib/content";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group border border-line bg-bg/85 transition-colors duration-300 hover:border-sand/60">
-      <div className="overflow-hidden border-b border-line">
+    <article className="group overflow-hidden rounded-xl border border-linelight bg-white shadow-[0_10px_40px_rgba(10,9,8,0.08)] transition-shadow duration-300 hover:shadow-[0_18px_60px_rgba(10,9,8,0.14)]">
+      <div className="overflow-hidden border-b border-linelight bg-bg">
         <img
           src={project.image}
           alt={`${project.name} screenshot`}
@@ -14,12 +14,12 @@ export default function ProjectCard({ project }: { project: Project }) {
           className="aspect-[16/10] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
         />
       </div>
-      <div className="p-6">
-        <h3 className="font-display text-xl uppercase tracking-tight text-sand">
+      <div className="p-6 text-bg">
+        <h3 className="font-display text-xl uppercase tracking-tight">
           {project.name}
         </h3>
-        <p className="mt-2 text-white">{project.description}</p>
-        <p className="mt-3 font-mono text-xs uppercase tracking-widest text-fog">
+        <p className="mt-2 text-bg/80">{project.description}</p>
+        <p className="mt-3 font-mono text-xs uppercase tracking-widest text-bg/55">
           {project.stack.join(" / ")}
         </p>
         {project.url ? (
@@ -28,7 +28,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${project.name} on GitHub`}
-            className="mt-4 inline-block font-mono text-sm text-sand underline underline-offset-4 hover:text-white"
+            className="mt-4 inline-block font-mono text-sm font-medium text-bg underline decoration-ember decoration-2 underline-offset-4 hover:text-ember"
           >
             GitHub
           </a>

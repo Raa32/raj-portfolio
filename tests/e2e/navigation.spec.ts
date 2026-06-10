@@ -26,7 +26,7 @@ test.describe("navigation", () => {
     page,
   }) => {
     await page.goto("/");
-    const sections = ["#hero", "#about", "#projects", "#experience", "#contact"];
+    const sections = ["#hero", "#projects", "#about", "#experience", "#contact"];
     const labels = [
       "BASE CAMP / 0M",
       "WAYPOINT 01 / ELEV 480M",
