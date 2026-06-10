@@ -1,40 +1,39 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Anton, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-sans",
+const anton = Anton({
+  weight: "400",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-anton",
+  display: "swap",
 });
 
-const spaceGroteskDisplay = Space_Grotesk({
-  variable: "--font-display",
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["700"],
+  variable: "--font-space-grotesk",
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["400", "500"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Raj Sahu — software engineer",
+  title: "Raj Sahu, Software Engineer",
   description:
-    "Software engineer based in Dublin, Ireland. Building thoughtful web apps with React, TypeScript, and Spring Boot.",
+    "I build the infrastructure software runs on, and I know how to support the people who use it.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body
-        className={`${spaceGrotesk.variable} ${spaceGroteskDisplay.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+        className={`${anton.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} bg-bg text-white antialiased`}
       >
         {children}
       </body>

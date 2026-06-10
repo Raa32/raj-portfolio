@@ -40,3 +40,16 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .claude/
+
+# local assets / experiments
+*.zip
+*.mp4
+/3d-scroll-website-skill-pack-*/
+
+# playwright
+/test-results/
+/playwright-report/
+/blob-report/
+
+# lighthouse
+/.lighthouseci/
