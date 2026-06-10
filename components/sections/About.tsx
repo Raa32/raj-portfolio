@@ -12,13 +12,15 @@ export default function About() {
         <WaypointLabel index={2} onPaper />
       </div>
       <div className="mx-auto mt-12 grid max-w-[880px] items-center gap-12 md:grid-cols-[300px_1fr]">
-        <img
-          src="/img/portrait.webp"
-          alt="Portrait of Raj Sahu"
-          width={1000}
-          height={1250}
-          loading="lazy"
-          decoding="async"
+        <video
+          src="/video/portrait-loop.mp4"
+          poster="/img/portrait.webp"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-label="Video portrait of Raj Sahu"
           className="mx-auto aspect-[4/5] w-full max-w-[300px] rounded-lg border border-linelight object-cover shadow-lg"
         />
         <div>

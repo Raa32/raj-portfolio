@@ -11,13 +11,13 @@ export default function Hero() {
           fetchPriority="high"
           className="h-full w-full object-cover object-[62%_center]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-bg/45 via-transparent to-bg/70" />
-        <div className="absolute left-6 top-20 max-w-[22rem] md:left-12 md:top-24">
+        <div className="absolute inset-0 bg-gradient-to-b from-bg/60 via-bg/15 to-bg/70" />
+        <div className="absolute left-6 top-24 max-w-[26rem] [text-shadow:0_1px_18px_rgba(10,9,8,0.55)] md:left-12 md:top-28 md:max-w-[34rem]">
           <WaypointLabel index={0} />
-          <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.25em] text-white/85">
+          <p className="mt-4 font-mono text-sm uppercase tracking-[0.25em] text-white">
             {content.identity.title} / {content.identity.location}
           </p>
-          <p className="mt-4 text-base leading-relaxed text-white">
+          <p className="mt-6 text-2xl font-medium leading-snug text-white md:text-[1.9rem]">
             {content.identity.brandLine}
           </p>
         </div>

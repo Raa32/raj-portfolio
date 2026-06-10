@@ -9,7 +9,11 @@
   --color-white: #f2efe8;
   --color-paper: #faf6ef;
   --color-linelight: #e3dccd;
+}
 
+/* Font tokens must live in an inline theme: they reference next/font
+   variables, and plain @theme drops var() references. */
+@theme inline {
   --font-display: var(--font-anton), sans-serif;
   --font-body: var(--font-space-grotesk), sans-serif;
   --font-mono: var(--font-jetbrains-mono), monospace;
@@ -28,7 +32,7 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-space-grotesk), sans-serif;
   font-size: 1.0625rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;

@@ -2,7 +2,7 @@ export default function PillNav() {
   return (
     <nav
       aria-label="Section navigation"
-      className="fixed left-1/2 top-4 z-40 -translate-x-1/2"
+      className="fixed left-1/2 top-4 z-40 hidden -translate-x-1/2 md:block"
     >
       <div className="flex items-center gap-1 rounded-full border border-linelight bg-paper/90 px-2 py-1.5 shadow-sm backdrop-blur">
         <a
