@@ -16,7 +16,7 @@ export default function ViewToggle() {
   }, [store]);
 
   const toggle = () => {
-    const next = isClassic ? "3d" : "classic";
+    const next = isClassic ? "rich" : "classic";
     store.getState().setViewMode(next);
     const url = new URL(window.location.href);
     if (next === "classic") {

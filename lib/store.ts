@@ -4,22 +4,15 @@ import { createStore, type StoreApi } from "zustand/vanilla";
 import { useStore as useZustandStore } from "zustand";
 import { WAYPOINT_COUNT } from "./elevation";
 
-export type ViewMode = "3d" | "classic";
-export type QualityTier = "high" | "medium" | "low";
+export type ViewMode = "rich" | "classic";
 
 export interface PortfolioState {
   viewMode: ViewMode;
   reducedMotion: boolean;
-  webglFailed: boolean;
-  qualityTier: QualityTier;
   progress: number;
   activeWaypoint: number;
-  activeProject: number | null;
   setViewMode: (mode: ViewMode) => void;
-  setQualityTier: (tier: QualityTier) => void;
   setProgress: (progress: number) => void;
-  setActiveProject: (index: number | null) => void;
-  markWebglFailed: () => void;
 }
 
 export type PortfolioStore = StoreApi<PortfolioState>;
@@ -35,22 +28,16 @@ export function waypointForProgress(progress: number): number {
 
 export function createPortfolioStore(options: StoreOptions): PortfolioStore {
   return createStore<PortfolioState>((set) => ({
-    viewMode: options.reducedMotion ? "classic" : "3d",
+    viewMode: options.reducedMotion ? "classic" : "rich",
     reducedMotion: options.reducedMotion,
-    webglFailed: false,
-    qualityTier: "high",
     progress: 0,
     activeWaypoint: 0,
-    activeProject: null,
     setViewMode: (mode) => set({ viewMode: mode }),
-    setActiveProject: (index) => set({ activeProject: index }),
-    setQualityTier: (tier) => set({ qualityTier: tier }),
     setProgress: (progress) =>
       set({
         progress,
         activeWaypoint: waypointForProgress(progress),
       }),
-    markWebglFailed: () => set({ webglFailed: true, viewMode: "classic" }),
   }));
 }
 
@@ -62,8 +49,8 @@ export function getAppStore(): PortfolioStore {
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     appStore = createPortfolioStore({ reducedMotion });
-    // ?view=classic wins from the first client render, so the 3D chunk
-    // is never requested.
+    // ?view=classic wins from the first client render, so the rich
+    // chunk is never requested.
     if (
       typeof window !== "undefined" &&
       new URLSearchParams(window.location.search).get("view") === "classic"

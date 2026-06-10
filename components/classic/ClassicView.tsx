@@ -1,22 +1,8 @@
-"use client";
-
 import { content } from "@/lib/content";
-import { usePortfolioState } from "@/components/StoreProvider";
 
 export default function ClassicView() {
-  const webglFailed = usePortfolioState((s) => s.webglFailed);
-
   return (
     <main id="content" className="mx-auto max-w-[720px] px-6 py-16">
-      {webglFailed ? (
-        <p
-          role="status"
-          className="mb-10 border border-line p-4 font-mono text-xs text-fog"
-        >
-          3D view unavailable on this device. Showing the classic view.
-        </p>
-      ) : null}
-
       <header>
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-fog">
           {content.identity.title} / {content.identity.location}

@@ -6,10 +6,10 @@ import ClassicView from "@/components/classic/ClassicView";
 import { usePortfolioState, useStoreApi } from "@/components/StoreProvider";
 import type { ViewMode } from "@/lib/store";
 
-// Three.js and framer-motion live inside this chunk; classic view never
+// Photos and framer-motion live inside this chunk; classic view never
 // downloads them.
-const ThreeExperience = dynamic(
-  () => import("@/components/ThreeExperience"),
+const PhotoExperience = dynamic(
+  () => import("@/components/PhotoExperience"),
   { ssr: true }
 );
 
@@ -44,5 +44,5 @@ export default function PortfolioRoot({
     return <ClassicView />;
   }
 
-  return <ThreeExperience />;
+  return <PhotoExperience />;
 }

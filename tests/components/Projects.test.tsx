@@ -12,6 +12,19 @@ describe("Projects", () => {
     expect(content.projects).toHaveLength(6);
   });
 
+  it("renders a screenshot image for every project", () => {
+    render(<Projects />);
+    for (const project of content.projects) {
+      const img = screen.getByRole("img", {
+        name: new RegExp(
+          project.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
+          "i"
+        ),
+      });
+      expect(img).toHaveAttribute("src", expect.stringContaining("/img/"));
+    }
+  });
+
   it("renders GitHub links with rel and accessible names", () => {
     render(<Projects />);
     const withUrls = content.projects.filter((p) => "url" in p && p.url);

@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 
-// Load sequence, part two: the name fades up after the terrain lines
-// finish drawing in (1.2s).
+// Load sequence: the backdrop photo settles first, then the name
+// fades up.
 export default function HeroIntro({
   children,
 }: {

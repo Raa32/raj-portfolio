@@ -6,6 +6,6 @@ export default async function Home({
   searchParams: Promise<{ view?: string }>;
 }) {
   const params = await searchParams;
-  const initialView = params.view === "classic" ? "classic" : "3d";
+  const initialView = params.view === "classic" ? "classic" : "rich";
   return <PortfolioRoot initialView={initialView} />;
 }

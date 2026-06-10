@@ -2,9 +2,9 @@ import { describe, it, expect, vi } from "vitest";
 import { createPortfolioStore } from "@/lib/store";
 
 describe("portfolio store", () => {
-  it("defaults to 3d view when reduced motion is not requested", () => {
+  it("defaults to rich view when reduced motion is not requested", () => {
     const store = createPortfolioStore({ reducedMotion: false });
-    expect(store.getState().viewMode).toBe("3d");
+    expect(store.getState().viewMode).toBe("rich");
   });
 
   it("defaults to classic view when reduced motion is requested", () => {
@@ -12,15 +12,15 @@ describe("portfolio store", () => {
     expect(store.getState().viewMode).toBe("classic");
   });
 
-  it("setting quality tier updates subscribers", () => {
+  it("progress updates notify subscribers", () => {
     const store = createPortfolioStore({ reducedMotion: false });
     const listener = vi.fn();
     store.subscribe(listener);
 
-    store.getState().setQualityTier("low");
+    store.getState().setProgress(0.4);
 
     expect(listener).toHaveBeenCalled();
-    expect(store.getState().qualityTier).toBe("low");
+    expect(store.getState().progress).toBeCloseTo(0.4);
   });
 
   it("waypoint changes are monotonic with progress", () => {
@@ -45,7 +45,7 @@ describe("portfolio store", () => {
     const store = createPortfolioStore({ reducedMotion: false });
     store.getState().setViewMode("classic");
     expect(store.getState().viewMode).toBe("classic");
-    store.getState().setViewMode("3d");
-    expect(store.getState().viewMode).toBe("3d");
+    store.getState().setViewMode("rich");
+    expect(store.getState().viewMode).toBe("rich");
   });
 });

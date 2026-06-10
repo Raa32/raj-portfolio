@@ -54,3 +54,6 @@ next-env.d.ts
 # lighthouse
 /.lighthouseci/
 /shots/
+
+# raw design assets (processed copies go to public/)
+/portfolio-assets/

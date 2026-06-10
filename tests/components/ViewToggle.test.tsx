@@ -36,7 +36,7 @@ describe("ViewToggle", () => {
     ).toHaveAttribute("aria-pressed", "true");
 
     await user.click(screen.getByRole("button", { name: /classic view/i }));
-    expect(store.getState().viewMode).toBe("3d");
+    expect(store.getState().viewMode).toBe("rich");
   });
 
   it("?view=classic in the URL initialises classic mode", () => {

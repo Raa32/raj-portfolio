@@ -3,6 +3,7 @@ export interface Project {
   description: string;
   stack: string[];
   url?: string;
+  image: string;
 }
 
 export interface ExperienceEntry {
@@ -43,35 +44,41 @@ export const content = {
   projects: [
     {
       name: "SiteCrew / LabourLink",
+      image: "/img/p-sitecrew.webp",
       description: "Two-sided construction labour marketplace for Ireland.",
       stack: ["Next.js", "TypeScript"],
       url: "https://github.com/Raa32/site-crew-ie",
     },
     {
       name: "ATS Scout",
+      image: "/img/p-ats.webp",
       description:
         "Chrome extension for resume ATS analysis. One provider-agnostic AI adapter: Claude, OpenAI, Gemini, Groq, Mistral, Cohere.",
       stack: ["Chrome Extension", "Manifest V3", "TypeScript"],
     },
     {
       name: "Observability Stack",
+      image: "/img/p-observability.webp",
       description: "Self-hosted monitoring stack: metrics, dashboards, alerts.",
       stack: ["Monitoring", "Dashboards", "Alerting"],
       url: "https://github.com/Raa32/nr-monitor-stack",
     },
     {
       name: "DocFlow",
+      image: "/img/p-docflow.webp",
       description: "Document workflow system. Upload, route, approve.",
       stack: ["FastAPI", "Python"],
       url: "https://github.com/Raa32/document-workflow-system",
     },
     {
       name: "SWIFT MT103 Parser",
+      image: "/img/p-mt103.webp",
       description: "Parser for SWIFT MT103 financial messages.",
       stack: ["Financial messaging", "Parsing"],
     },
     {
       name: "Irish Student Budget Tracker",
+      image: "/img/p-budget.webp",
       description: "Budget tracker built for students in Ireland.",
       stack: ["Web app", "Personal finance"],
       url: "https://github.com/Raa32/irish-student-budget",
