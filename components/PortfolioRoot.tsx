@@ -3,17 +3,15 @@
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import ClassicView from "@/components/classic/ClassicView";
-import Hero from "@/components/sections/Hero";
-import About from "@/components/sections/About";
-import Projects from "@/components/sections/Projects";
-import Experience from "@/components/sections/Experience";
-import Contact from "@/components/sections/Contact";
 import { usePortfolioState, useStoreApi } from "@/components/StoreProvider";
 import type { ViewMode } from "@/lib/store";
 
-const Scene = dynamic(() => import("@/components/three/Scene"), {
-  ssr: false,
-});
+// Three.js and framer-motion live inside this chunk; classic view never
+// downloads them.
+const ThreeExperience = dynamic(
+  () => import("@/components/ThreeExperience"),
+  { ssr: true }
+);
 
 export default function PortfolioRoot({
   initialView,
@@ -38,16 +36,5 @@ export default function PortfolioRoot({
     return <ClassicView />;
   }
 
-  return (
-    <>
-      <Scene />
-      <main id="content" className="relative z-10">
-        <Hero />
-        <About />
-        <Projects />
-        <Experience />
-        <Contact />
-      </main>
-    </>
-  );
+  return <ThreeExperience />;
 }

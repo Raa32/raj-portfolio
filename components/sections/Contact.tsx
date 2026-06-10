@@ -6,7 +6,7 @@ export default function Contact() {
     <section
       id="contact"
       aria-label="Contact"
-      className="flex min-h-screen flex-col justify-center px-6 md:px-16"
+      className="relative flex min-h-screen flex-col justify-center px-6 md:px-16"
     >
       <div className="max-w-[720px]">
         <WaypointLabel index={4} />

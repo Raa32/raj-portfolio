@@ -14,9 +14,11 @@ export interface PortfolioState {
   qualityTier: QualityTier;
   progress: number;
   activeWaypoint: number;
+  activeProject: number | null;
   setViewMode: (mode: ViewMode) => void;
   setQualityTier: (tier: QualityTier) => void;
   setProgress: (progress: number) => void;
+  setActiveProject: (index: number | null) => void;
   markWebglFailed: () => void;
 }
 
@@ -39,7 +41,9 @@ export function createPortfolioStore(options: StoreOptions): PortfolioStore {
     qualityTier: "high",
     progress: 0,
     activeWaypoint: 0,
+    activeProject: null,
     setViewMode: (mode) => set({ viewMode: mode }),
+    setActiveProject: (index) => set({ activeProject: index }),
     setQualityTier: (tier) => set({ qualityTier: tier }),
     setProgress: (progress) =>
       set({

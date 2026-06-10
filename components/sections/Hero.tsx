@@ -6,7 +6,7 @@ export default function Hero() {
     <section
       id="hero"
       aria-label="Introduction"
-      className="flex min-h-screen flex-col justify-center px-6 md:px-16"
+      className="relative flex min-h-screen flex-col justify-center px-6 md:px-16"
     >
       <div className="max-w-[720px]">
         <WaypointLabel index={0} />
