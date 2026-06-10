@@ -14,6 +14,7 @@ test.describe("classic view", () => {
     page,
   }) => {
     await page.goto("/");
+    await page.waitForLoadState("networkidle");
     await page.getByRole("button", { name: /classic view/i }).click();
     await expect(page.locator("#classic-about")).toBeVisible();
     await expect(page.locator("canvas")).toHaveCount(0);

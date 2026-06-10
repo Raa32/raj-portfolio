@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { Canvas } from "@react-three/fiber";
 import { BASE_CAMP } from "@/lib/cameraPath";
 import { isWebGLAvailable, attachContextLossHandler } from "@/lib/webgl";
@@ -11,18 +11,28 @@ import Beacons from "./Beacons";
 import Stars from "./Stars";
 import QualityManager from "./QualityManager";
 
+let webglProbe: boolean | null = null;
+const emptySubscribe = () => () => {};
+
+// Server snapshot is false so SSR and hydration agree on rendering
+// nothing; the client snapshot probes (and caches) real support.
+function useWebGLAvailable(): boolean {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => (webglProbe ??= isWebGLAvailable()),
+    () => false
+  );
+}
+
 export default function Scene() {
   const store = useStoreApi();
-  // Probed in an effect so server and first client render agree (both null).
-  const [available, setAvailable] = useState<boolean | null>(null);
+  const available = useWebGLAvailable();
 
   useEffect(() => {
-    const ok = isWebGLAvailable();
-    setAvailable(ok);
-    if (!ok) {
+    if (webglProbe === false) {
       store.getState().markWebglFailed();
     }
-  }, [store]);
+  }, [available, store]);
 
   if (!available) return null;
 

@@ -38,7 +38,6 @@ export default function Beacons() {
       const scale = (0.7 + proximity * 1.1) * pulse;
 
       dummy.position.copy(pos);
-      dummy.position.y = pos.y + Math.sin(t * 1.2 + i * 1.7) * 0.25;
       dummy.rotation.y = t * 0.6 + i;
       dummy.scale.setScalar(scale);
       dummy.updateMatrix();

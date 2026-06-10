@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useRef } from "react";
+import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { createNoise2D } from "simplex-noise";
 import { usePortfolioState } from "@/components/StoreProvider";
@@ -42,9 +43,27 @@ const SEGMENTS: Record<string, number> = {
   low: 52,
 };
 
+const DRAW_IN_SECONDS = 1.2;
+
 export default function Terrain() {
   const qualityTier = usePortfolioState((s) => s.qualityTier);
   const segments = SEGMENTS[qualityTier];
+  const materialRef = useRef<THREE.MeshBasicMaterial>(null);
+  const startedAt = useRef<number | null>(null);
+
+  // Page-load sequence: the terrain lines fade in over 1.2s before the
+  // hero name appears.
+  useFrame(({ clock }) => {
+    const material = materialRef.current;
+    if (!material || material.opacity >= 1) return;
+    if (startedAt.current === null) startedAt.current = clock.elapsedTime;
+    const t = Math.min(
+      (clock.elapsedTime - startedAt.current) / DRAW_IN_SECONDS,
+      1
+    );
+    material.opacity = t * t;
+    if (t >= 1) material.transparent = false;
+  });
 
   const geometry = useMemo(() => {
     const geo = new THREE.PlaneGeometry(180, 240, segments, segments);
@@ -62,7 +81,13 @@ export default function Terrain() {
 
   return (
     <mesh geometry={geometry}>
-      <meshBasicMaterial color="#2a2722" wireframe />
+      <meshBasicMaterial
+        ref={materialRef}
+        color="#2a2722"
+        wireframe
+        transparent
+        opacity={0}
+      />
     </mesh>
   );
 }

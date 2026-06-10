@@ -8,6 +8,7 @@ import Projects from "@/components/sections/Projects";
 import Experience from "@/components/sections/Experience";
 import Contact from "@/components/sections/Contact";
 import SectionReveal from "@/components/sections/SectionReveal";
+import HeroIntro from "@/components/sections/HeroIntro";
 import ProjectCard from "@/components/ui/ProjectCard";
 import { content } from "@/lib/content";
 import { observeScrollProgress } from "@/lib/scrollProgress";
@@ -40,7 +41,9 @@ export default function ThreeExperience() {
     <>
       <Scene />
       <main id="content" className="relative z-10">
-        <Hero />
+        <HeroIntro>
+          <Hero />
+        </HeroIntro>
         <SectionReveal>
           <About />
         </SectionReveal>

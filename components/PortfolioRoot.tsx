@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import dynamic from "next/dynamic";
 import ClassicView from "@/components/classic/ClassicView";
 import { usePortfolioState, useStoreApi } from "@/components/StoreProvider";
@@ -13,6 +13,15 @@ const ThreeExperience = dynamic(
   { ssr: true }
 );
 
+const emptySubscribe = () => () => {};
+function useHydrated(): boolean {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+}
+
 export default function PortfolioRoot({
   initialView,
 }: {
@@ -20,13 +29,12 @@ export default function PortfolioRoot({
 }) {
   const store = useStoreApi();
   const storeView = usePortfolioState((s) => s.viewMode);
-  const [hydrated, setHydrated] = useState(false);
+  const hydrated = useHydrated();
 
   useEffect(() => {
     if (initialView === "classic") {
       store.getState().setViewMode("classic");
     }
-    setHydrated(true);
   }, [initialView, store]);
 
   // Until hydration the server-chosen view wins, so SSR HTML matches.

@@ -62,6 +62,14 @@ export function getAppStore(): PortfolioStore {
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     appStore = createPortfolioStore({ reducedMotion });
+    // ?view=classic wins from the first client render, so the 3D chunk
+    // is never requested.
+    if (
+      typeof window !== "undefined" &&
+      new URLSearchParams(window.location.search).get("view") === "classic"
+    ) {
+      appStore.getState().setViewMode("classic");
+    }
   }
   return appStore;
 }
