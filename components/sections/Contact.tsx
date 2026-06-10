@@ -24,6 +24,9 @@ export default function Contact() {
             {lead}
             {tail ? <span className="text-ember">{tail}</span> : null}
           </h2>
+          <p className="mt-8 max-w-[34rem] text-lg text-white/90">
+            {content.contact.body}
+          </p>
           <div className="mt-10 flex flex-wrap items-center gap-6">
             <a
               href={`mailto:${content.identity.links.email}`}

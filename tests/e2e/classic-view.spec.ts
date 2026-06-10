@@ -1,12 +1,13 @@
 import { test, expect } from "@playwright/test";
 
 const PROJECT_NAMES = [
-  "SiteCrew / LabourLink",
-  "ATS Scout",
+  "SiteCrew",
+  "Lookinit AI Engine",
+  "Fitness SaaS Platform",
   "Observability Stack",
   "DocFlow",
-  "SWIFT MT103 Parser",
-  "Irish Student Budget Tracker",
+  "Client Implementation Tracker",
+  "Hotel Reviews Sentiment Analysis",
 ];
 
 test.describe("classic view", () => {

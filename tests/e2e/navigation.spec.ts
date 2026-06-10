@@ -40,7 +40,9 @@ test.describe("navigation", () => {
         .evaluate((el) =>
           el.scrollIntoView({ block: "start", behavior: "instant" })
         );
-      await expect(page.getByText(labels[i])).toBeInViewport();
+      await expect(
+        page.locator(sections[i]).getByText(labels[i])
+      ).toBeInViewport();
     }
   });
 });

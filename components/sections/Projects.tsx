@@ -1,6 +1,7 @@
 import { content } from "@/lib/content";
 import WaypointLabel from "@/components/ui/WaypointLabel";
 import ProjectCard from "@/components/ui/ProjectCard";
+import RevealItem from "@/components/ui/RevealItem";
 
 export default function Projects() {
   return (
@@ -31,9 +32,11 @@ export default function Projects() {
           </div>
         </div>
         <ul className="mt-16 grid gap-8 md:grid-cols-2" role="list">
-          {content.projects.map((project) => (
+          {content.projects.map((project, i) => (
             <li key={project.name}>
-              <ProjectCard project={project} />
+              <RevealItem delay={(i % 2) * 0.12}>
+                <ProjectCard project={project} />
+              </RevealItem>
             </li>
           ))}
         </ul>

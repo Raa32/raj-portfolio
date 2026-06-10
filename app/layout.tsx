@@ -26,13 +26,13 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rxj.life"),
-  title: "Raj Sahu, Software Engineer",
+  title: "Raj Sahu - Software Engineer | Dublin, Ireland",
   description:
-    "I build the infrastructure software runs on, and I know how to support the people who use it. Software engineer in Athlone, Ireland.",
+    "Software engineer specialising in AI systems, Go, TypeScript, and Kubernetes. Based in Ireland. Open to SWE, AI engineering, and implementation roles.",
   openGraph: {
-    title: "Raj Sahu, Software Engineer",
+    title: "Raj Sahu - Software Engineer | Dublin, Ireland",
     description:
-      "I build the infrastructure software runs on, and I know how to support the people who use it.",
+      "Software engineer specialising in AI systems, Go, TypeScript, and Kubernetes. Based in Ireland.",
     url: "https://rxj.life",
     siteName: "Raj Sahu",
     locale: "en_IE",
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Raj Sahu, Software Engineer",
+    title: "Raj Sahu - Software Engineer | Dublin, Ireland",
     description:
-      "I build the infrastructure software runs on, and I know how to support the people who use it.",
+      "Software engineer specialising in AI systems, Go, TypeScript, and Kubernetes. Based in Ireland.",
   },
   robots: { index: true, follow: true },
 };

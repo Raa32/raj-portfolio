@@ -25,6 +25,27 @@ export default function ClassicView() {
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
+        <dl className="mt-8 grid grid-cols-2 gap-4 border-y border-line py-6 md:grid-cols-4">
+          {content.stats.map((stat) => (
+            <div key={stat.label}>
+              <dd className="font-display text-2xl text-sand">{stat.value}</dd>
+              <dt className="mt-1 font-mono text-[10px] uppercase tracking-widest text-fog">
+                {stat.label}
+              </dt>
+            </div>
+          ))}
+        </dl>
+        <h3 className="mt-8 font-mono text-xs uppercase tracking-widest text-fog">
+          What I work with
+        </h3>
+        <ul className="mt-3 space-y-2 text-sm" role="list">
+          {content.skills.map((category) => (
+            <li key={category.name}>
+              <span className="text-sand">{category.name}:</span>{" "}
+              {category.items.join(", ")}
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section aria-labelledby="classic-projects" className="mt-16">
@@ -38,7 +59,11 @@ export default function ClassicView() {
           {content.projects.map((project) => (
             <li key={project.name} className="border-l border-line pl-5">
               <h3 className="text-lg font-medium text-sand">{project.name}</h3>
-              <p className="mt-1">{project.description}</p>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-fog">
+                {project.status}
+              </p>
+              <p className="mt-2 font-medium">{project.tagline}</p>
+              <p className="mt-1 text-sm text-white/80">{project.description}</p>
               <p className="mt-2 font-mono text-xs uppercase tracking-widest text-fog">
                 {project.stack.join(" / ")}
               </p>
@@ -69,12 +94,17 @@ export default function ClassicView() {
           {content.experience.map((entry) => (
             <li key={`${entry.company}-${entry.role}`}>
               <p className="font-mono text-xs uppercase tracking-widest text-fog">
-                {entry.period}
+                {entry.period} / {entry.location}
               </p>
               <h3 className="mt-1 text-lg font-medium text-sand">
                 {entry.role}, {entry.company}
               </h3>
               <p className="mt-1">{entry.summary}</p>
+              <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-white/80" role="list">
+                {entry.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
             </li>
           ))}
         </ol>
@@ -98,6 +128,7 @@ export default function ClassicView() {
           {content.sections.contact}
         </h2>
         <p className="mt-4 text-lg">{content.contact.heading}</p>
+        <p className="mt-2 text-white/80">{content.contact.body}</p>
         <div className="mt-6 flex flex-wrap items-center gap-5">
           <a
             href={`mailto:${content.identity.links.email}`}

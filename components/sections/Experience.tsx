@@ -17,12 +17,22 @@ export default function Experience() {
           {content.experience.map((entry) => (
             <li key={`${entry.company}-${entry.role}`}>
               <p className="font-mono text-xs uppercase tracking-widest text-bg/55">
-                {entry.period}
+                {entry.period} / {entry.location}
               </p>
               <h3 className="mt-1 text-xl font-medium">
                 {entry.role}, {entry.company}
               </h3>
-              <p className="mt-1 text-bg/80">{entry.summary}</p>
+              <p className="mt-1 font-medium text-bg/85">{entry.summary}</p>
+              <ul className="mt-3 space-y-1.5 text-sm text-bg/70" role="list">
+                {entry.points.map((point) => (
+                  <li key={point} className="flex gap-2">
+                    <span aria-hidden="true" className="text-ember">
+                      +
+                    </span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
             </li>
           ))}
         </ol>

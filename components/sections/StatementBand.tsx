@@ -1,17 +1,12 @@
 import { content } from "@/lib/content";
+import ParallaxImage from "@/components/ui/ParallaxImage";
 
 // Full-bleed photo band mid-page, juanmora-style: one bold statement
 // over the work-setup shot.
 export default function StatementBand() {
   return (
     <section aria-label="Statement" className="relative h-[72vh] overflow-hidden">
-      <img
-        src="/img/setup.webp"
-        alt=""
-        loading="lazy"
-        decoding="async"
-        className="h-full w-full object-cover"
-      />
+      <ParallaxImage src="/img/setup.webp" className="absolute inset-0 h-full w-full" />
       <div className="absolute inset-0 bg-bg/55" />
       <div className="absolute inset-0 flex flex-col items-start justify-center px-6 md:px-16">
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-white/80">

@@ -10,6 +10,7 @@ import Contact from "@/components/sections/Contact";
 import SectionReveal from "@/components/sections/SectionReveal";
 import HeroIntro from "@/components/sections/HeroIntro";
 import PillNav from "@/components/ui/PillNav";
+import Preloader from "@/components/ui/Preloader";
 import { observeScrollProgress } from "@/lib/scrollProgress";
 import { useStoreApi } from "@/components/StoreProvider";
 
@@ -26,6 +27,7 @@ export default function PhotoExperience() {
 
   return (
     <>
+      <Preloader />
       <PillNav />
       <main id="content" className="bg-paper">
         <HeroIntro>

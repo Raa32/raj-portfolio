@@ -15,11 +15,13 @@ function collectStrings(value: unknown, out: string[] = []): string[] {
 const allStrings = collectStrings(content);
 
 describe("content", () => {
-  it("has six projects, each with name, description and stack", () => {
-    expect(content.projects).toHaveLength(6);
+  it("has seven projects, each with name, tagline, description and stack", () => {
+    expect(content.projects).toHaveLength(7);
     for (const project of content.projects) {
       expect(project.name).toBeTruthy();
+      expect(project.tagline).toBeTruthy();
       expect(project.description).toBeTruthy();
+      expect(project.status).toBeTruthy();
       expect(project.stack.length).toBeGreaterThan(0);
     }
   });
@@ -57,7 +59,7 @@ describe("content", () => {
   it("uses the exact name and brand line", () => {
     expect(content.identity.name).toBe("Raj Sahu");
     expect(content.identity.brandLine).toBe(
-      "I build the infrastructure software runs on, and I know how to support the people who use it."
+      "I build production systems and stay close to the people using them."
     );
   });
 });

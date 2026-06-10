@@ -57,3 +57,5 @@ next-env.d.ts
 
 # raw design assets (processed copies go to public/)
 /portfolio-assets/
+server.log
+lhtest.json
